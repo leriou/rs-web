@@ -3,6 +3,9 @@
 [[package]]
 name = "server"
 version = "0.1.0"
+dependencies = [
+ "utils 0.1.0",
+]
 
 [[package]]
 name = "tests"

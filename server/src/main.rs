@@ -1,3 +1,9 @@
+use utils::tools;
+
+mod corner;
+use corner::inner;
+
 fn main() {
-    println!("Hello, world!");
+    inner::test::test();
+    println!("tools -> {}", tools::test());
 }
