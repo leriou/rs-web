@@ -1,8 +1,5 @@
 mod leetcode;
 
-extern crate actix_web;
-extern crate listenfd;
-
 use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
 use leetcode::solution::config;
 use leetcode::solution::Solution;

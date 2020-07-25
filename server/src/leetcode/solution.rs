@@ -1,8 +1,6 @@
-extern crate actix_web;
-
 use actix_web::{web, HttpResponse};
 
-pub struct Solution {}
+pub struct Solution;
 
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
