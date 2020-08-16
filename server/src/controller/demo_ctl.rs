@@ -1,13 +1,26 @@
-pub struct DemoCtl;
+use crate::so::Solution;
 
-use actix_web::{HttpResponse, Responder};
+use actix_web::{web, HttpResponse};
 
-impl DemoCtl {
-    pub fn New() -> Self {
-        DemoCtl {}
-    }
+use utils::tools;
 
-    pub async fn print_test(&self) -> impl Responder {
-        HttpResponse::Ok().body(format!("hello ctl print {:?}", "success"))
-    }
+pub fn mod_config_test(cfg: &mut web::ServiceConfig) {
+    let test_value = tools::test();
+    let c = Solution::longest_common_prefix(vec![
+        String::from("hello"),
+        String::from("heooo"),
+        String::from("hec"),
+        String::from("he"),
+    ]);
+
+    cfg.service(
+        web::resource("/test")
+            .route(web::get().to(move || {
+                HttpResponse::Ok().body(format!(
+                    "test demo: test v -> {:?} logest -> {:?}",
+                    test_value, c
+                ))
+            }))
+            .route(web::head().to(|| HttpResponse::MethodNotAllowed())),
+    );
 }
